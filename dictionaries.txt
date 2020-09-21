@@ -1,0 +1,10 @@
+Hello	Xin chao
+Goodbye	Tam biet
+Flower	Bong Hoa
+Teacher	Thay giao
+Compatible	Tuong Thich
+Target	Muc tieu
+Constrain	Ep buoc
+Type	Loai,Tip
+Correspond	Tuong ung
+Conversion	Su chuyen bien

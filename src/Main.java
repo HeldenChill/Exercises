@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         DictionaryCommandline dc=DictionaryCommandline.Instance();
         DictionaryManagement dm= DictionaryManagement.Instance();
-        dm.insertFromCommandline();
+        dm.insertFormFile();
         dc.showAllWord();
     }
 }

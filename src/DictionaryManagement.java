@@ -1,13 +1,16 @@
+import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.io.File;
 
 public class DictionaryManagement {
     private Scanner scan;
     private Dictionary dictionary;
     private static DictionaryManagement inst = null;
+    private File fileSaveWord = null;
 
     private DictionaryManagement() {
-        scan = new Scanner(System.in);
         dictionary = Dictionary.Instance();
+        fileSaveWord = new File("E:\\Study\\IT\\SaveJava\\Git\\BigTask\\Exercises\\dictionaries.txt");
     }
 
     public static DictionaryManagement Instance() {
@@ -19,6 +22,7 @@ public class DictionaryManagement {
 
     void insertFromCommandline() {
         boolean input = true;
+        scan = new Scanner(System.in);
         String targetWord = "";
         String explainWord = "";
         String unprocessStr = "";
@@ -36,9 +40,9 @@ public class DictionaryManagement {
 
             try {
                 explainWord = tokens[1];
-            }
-            catch (Exception e){
-                System.out.print("No explain word found!");
+            } catch (Exception e) {
+                System.out.println("No explain word found !");
+                break;
             }
 
             Word newWord = new Word(targetWord, explainWord);
@@ -47,7 +51,31 @@ public class DictionaryManagement {
     }
 
     void insertFormFile() {
+        try {
+            scan = new Scanner(fileSaveWord);
+            String wordTarget;
+            String wordExplain;
+            String content;
+            String[] tokens;
+            while (scan.hasNextLine()) {
+                content = scan.nextLine();
+                tokens = content.split("\t");
+                wordTarget = tokens[0];
 
+                try {
+                    wordExplain = tokens[1];
+                } catch (Exception e) {
+                    System.out.println("No explain word found !");
+                    break;
+                }
+
+                Word newWord = new Word(wordTarget, wordExplain);
+                Dictionary.Instance().addWord(newWord);
+            }
+            Dictionary.Instance().sort(Word.getWordTargetCom());
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found!!");
+        }
     }
 
     /**

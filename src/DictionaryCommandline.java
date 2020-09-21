@@ -22,7 +22,8 @@ public class DictionaryCommandline {
      * Can call to showAllWord() and insertFromCommandline().
      */
     void dictionaryBasic() {
-
+        DictionaryManagement.Instance().insertFromCommandline();
+        showAllWord();
     }
 
     /**
