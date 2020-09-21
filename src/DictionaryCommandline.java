@@ -1,10 +1,10 @@
 public class DictionaryCommandline {
-    DictionaryCommandline inst = null;
+    static DictionaryCommandline inst = null;
 
     private DictionaryCommandline() {
     }
 
-    public DictionaryCommandline Instance() {
+    public static DictionaryCommandline Instance() {
         if (inst == null) {
             inst = new DictionaryCommandline();
         }
@@ -15,7 +15,7 @@ public class DictionaryCommandline {
      * Show all word target and its correspondence word explain.
      */
     void showAllWord() {
-
+        System.out.print(Dictionary.Instance());
     }
 
     /**

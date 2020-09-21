@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class DictionaryManagement {
-    Scanner scan;
-    Dictionary dictionary;
+    private Scanner scan;
+    private Dictionary dictionary;
     private static DictionaryManagement inst = null;
 
     private DictionaryManagement() {
@@ -22,7 +22,7 @@ public class DictionaryManagement {
         String targetWord = "";
         String explainWord = "";
         String unprocessStr = "";
-        System.out.println("Enter target word and the corresponding explanation word,separated by a \"|\" (Enter 0 to stop enter)!");
+        System.out.println("Enter target word and the corresponding explanation word,separated by a \"/\" (Enter 0 to stop enter)!");
         while (input) {
             unprocessStr = scan.nextLine();
 
@@ -33,7 +33,14 @@ public class DictionaryManagement {
                 input = false;
                 break;
             }
-            explainWord = tokens[1];
+
+            try {
+                explainWord = tokens[1];
+            }
+            catch (Exception e){
+                System.out.print("No explain word found!");
+            }
+
             Word newWord = new Word(targetWord, explainWord);
             dictionary.addWord(newWord);
         }
