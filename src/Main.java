@@ -4,11 +4,10 @@ public class Main {
     public static void main(String[] args) {
         DictionaryCommandline dc=DictionaryCommandline.Instance();
         DictionaryManagement dm= DictionaryManagement.Instance();
-        dc.dictionaryAdvance();
+        dm.insertFormFile();
+        dc.dictionaryBasic();
         dc.dictionarySearcher();
-        /*String s1 = "Compatible";
-        String s2 = "Constrain";
-        String s3 = "Conversion";
-        System.out.println("Comp".compareTo(s1));*/
+        dm.dictionaryLookUp();
+        dm.dictionaryExportToFile();
     }
 }

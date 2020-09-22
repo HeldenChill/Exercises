@@ -1,5 +1,8 @@
 Hello	Xin chao
-Goodbye	Tam biet
+Tell	Noi
+Term	Thoi han
+Touch	So mo
+Trade	Trao doiGoodbye	Tam biet
 Flower	Bong Hoa
 Teacher	Thay giao
 Compatible	Tuong Thich
@@ -8,3 +11,5 @@ Constrain	Ep buoc
 Type	Loai,Tip
 Correspond	Tuong ung
 Conversion	Su chuyen bien
+Tired	Met moi
+Total	Tong cong

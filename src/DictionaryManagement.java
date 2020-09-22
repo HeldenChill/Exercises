@@ -1,4 +1,6 @@
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
@@ -150,11 +152,11 @@ public class DictionaryManagement {
             if(dic.get(indexCheck).getWordTarget().startsWith(searchTerm)){
                 bound[0]=indexCheck;
                 bound[1]=indexCheck;
-                while(dic.get(bound[0]).getWordTarget().startsWith(searchTerm)){
+                while(bound[0]>=0 && dic.get(bound[0]).getWordTarget().startsWith(searchTerm)){
                     bound[0]--;
                 }
                 bound[0]++;
-                while(dic.get(bound[1]).getWordTarget().startsWith(searchTerm)){
+                while((bound[1]<dic.size()-1) && dic.get(bound[1]).getWordTarget().startsWith(searchTerm)){
                     bound[1]++;
                 }
                 bound[1]--;
@@ -184,6 +186,30 @@ public class DictionaryManagement {
      * Export data to file.
      */
     boolean dictionaryExportToFile() {
+        ArrayList<Word> dic = Dictionary.Instance().getDictionary();
+        File exportFile = new File("exportFile.txt");
+        if(exportFile.exists()){
+            if(exportFile.delete()){
+                System.out.println("Delete file!");
+            }
+            else{
+                System.out.println("Can't delete file!");
+            }
+        }
+        try{
+            if(exportFile.createNewFile()){
+                FileWriter fileWriter = new FileWriter(exportFile);
+                for(int i=0;i<dic.size();i++){
+                    Word word = dic.get(i);
+                    fileWriter.write(word.getWordTarget()+"\t"+word.getWordExplain()+"\n");
+                }
+                fileWriter.close();
+                System.out.println("Successfully wrote to the file.");
+            }
+        }
+        catch (IOException e){
+            System.out.println("Can't create new file");
+        }
         return true;
     }
 }
