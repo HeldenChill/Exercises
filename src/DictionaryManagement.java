@@ -111,10 +111,10 @@ public class DictionaryManagement {
         searchTerm = nomalize(scan.nextLine());
 
         ArrayList<Word> dic = Dictionary.Instance().getDictionary();
-        int high = dic.size();
+        int high = dic.size()-1;
         int low = 0;
 
-        while(low<=high){
+        while(low<high-1){
             int indexCheck = (high+low)/2;
             int valueSearch = searchTerm.compareToIgnoreCase(dic.get(indexCheck).getWordTarget());
             if(valueSearch == 0){
@@ -133,6 +133,45 @@ public class DictionaryManagement {
         return null;
     }
 
+    public int[] dictionarySeacher(){
+        String searchTerm;
+        int[] bound = new int[2];
+        scan = new Scanner(System.in);
+        System.out.print("Enter the word to search:");
+        searchTerm = nomalize(scan.nextLine());
+
+        ArrayList<Word> dic = Dictionary.Instance().getDictionary();
+        int high = dic.size()-1;
+        int low = 0;
+
+        while(low<high-1){
+            int indexCheck = (high+low)/2;
+            int valueSearch = searchTerm.compareToIgnoreCase(dic.get(indexCheck).getWordTarget());
+            if(dic.get(indexCheck).getWordTarget().startsWith(searchTerm)){
+                bound[0]=indexCheck;
+                bound[1]=indexCheck;
+                while(dic.get(bound[0]).getWordTarget().startsWith(searchTerm)){
+                    bound[0]--;
+                }
+                bound[0]++;
+                while(dic.get(bound[1]).getWordTarget().startsWith(searchTerm)){
+                    bound[1]++;
+                }
+                bound[1]--;
+                return bound;
+            }
+            else if(valueSearch > 0){
+                low = indexCheck;
+                continue;
+            }
+            else{
+                high = indexCheck;
+                continue;
+            }
+        }
+
+        return null;
+    }
     boolean changWord(String wordTarget) {
         return true;
     }

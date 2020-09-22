@@ -5,6 +5,7 @@ public class Main {
         DictionaryCommandline dc=DictionaryCommandline.Instance();
         DictionaryManagement dm= DictionaryManagement.Instance();
         dc.dictionaryAdvance();
+        dc.dictionarySearcher();
         /*String s1 = "Compatible";
         String s2 = "Constrain";
         String s3 = "Conversion";
