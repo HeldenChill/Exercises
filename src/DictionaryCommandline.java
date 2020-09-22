@@ -30,7 +30,9 @@ public class DictionaryCommandline {
      * Can call to showAllWord(),insertFromFile and dictionaryLookUp().
      */
     void dictionaryAdvance() {
-
+        DictionaryManagement.Instance().insertFormFile();
+        showAllWord();
+        DictionaryManagement.Instance().dictionaryLookUp();
     }
 
     /**

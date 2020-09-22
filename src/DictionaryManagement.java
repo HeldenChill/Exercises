@@ -10,7 +10,7 @@ public class DictionaryManagement {
 
     private DictionaryManagement() {
         dictionary = Dictionary.Instance();
-        fileSaveWord = new File("E:\\Study\\IT\\SaveJava\\Git\\BigTask\\Exercises\\dictionaries.txt");
+        fileSaveWord = new File(".\\dictionaries.txt");
     }
 
     public static DictionaryManagement Instance() {
@@ -31,7 +31,7 @@ public class DictionaryManagement {
             unprocessStr = scan.nextLine();
 
             String[] tokens = unprocessStr.split("/", 0);
-            targetWord = tokens[0];
+            targetWord = nomalize(tokens[0]);
             if (targetWord.equals("0")) {
                 dictionary.sort(Word.getWordTargetCom());
                 input = false;
@@ -39,7 +39,7 @@ public class DictionaryManagement {
             }
 
             try {
-                explainWord = tokens[1];
+                explainWord = nomalize(tokens[1]);
             } catch (Exception e) {
                 System.out.println("No explain word found !");
                 break;
@@ -50,6 +50,9 @@ public class DictionaryManagement {
         }
     }
 
+    /**
+     * Insert word from file
+     */
     void insertFormFile() {
         try {
             scan = new Scanner(fileSaveWord);
@@ -60,10 +63,11 @@ public class DictionaryManagement {
             while (scan.hasNextLine()) {
                 content = scan.nextLine();
                 tokens = content.split("\t");
-                wordTarget = tokens[0];
+                wordTarget = nomalize(tokens[0]);
 
                 try {
-                    wordExplain = tokens[1];
+                    wordExplain = nomalize(tokens[1]);
+
                 } catch (Exception e) {
                     System.out.println("No explain word found !");
                     break;
@@ -79,9 +83,31 @@ public class DictionaryManagement {
     }
 
     /**
+     * nomalize target word and explain word
+     */
+    public static String nomalize(String str){
+        int indexFirstLetter = 0;
+        while(str.charAt(indexFirstLetter) == ' '){
+            indexFirstLetter++;
+        }
+        str = str.substring(indexFirstLetter);
+
+        String firstLetter = str.charAt(0)+"";
+        firstLetter = firstLetter.toUpperCase();
+        String remanderLetter = str.substring(1);
+        remanderLetter = remanderLetter.toLowerCase();
+
+        return firstLetter+remanderLetter;
+    }
+
+    /**
      * Find word by commandline.
      */
-    String dictionaryLookUp(String wordTarget) {
+    String dictionaryLookUp() {
+        String searchTerm;
+        scan = new Scanner(System.in);
+        System.out.print("Enter the target word:");
+        searchTerm = scan.nextLine();
         return "";
     }
 

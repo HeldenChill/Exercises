@@ -6,5 +6,9 @@ public class Main {
         DictionaryManagement dm= DictionaryManagement.Instance();
         dm.insertFormFile();
         dc.showAllWord();
+        String s1 = "Compatible";
+        String s2 = "Constrain";
+        String s3 = "Conversion";
+        System.out.println(DictionaryManagement.nomalize("     hello WoRlD"));
     }
 }
