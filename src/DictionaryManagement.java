@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 
@@ -103,12 +104,33 @@ public class DictionaryManagement {
     /**
      * Find word by commandline.
      */
-    String dictionaryLookUp() {
+    public Word dictionaryLookUp() {
         String searchTerm;
         scan = new Scanner(System.in);
         System.out.print("Enter the target word:");
-        searchTerm = scan.nextLine();
-        return "";
+        searchTerm = nomalize(scan.nextLine());
+
+        ArrayList<Word> dic = Dictionary.Instance().getDictionary();
+        int high = dic.size();
+        int low = 0;
+
+        while(low<=high){
+            int indexCheck = (high+low)/2;
+            int valueSearch = searchTerm.compareToIgnoreCase(dic.get(indexCheck).getWordTarget());
+            if(valueSearch == 0){
+                return dic.get(indexCheck);
+            }
+            else if(valueSearch > 0){
+                low = indexCheck;
+                continue;
+            }
+            else{
+                high = indexCheck;
+                continue;
+            }
+        }
+
+        return null;
     }
 
     boolean changWord(String wordTarget) {

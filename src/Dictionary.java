@@ -28,9 +28,12 @@ public class Dictionary {
         Collections.sort(data, comparator);
     }
 
+    public ArrayList<Word> getDictionary(){
+        return data;
+    }
+
     private final int space1 = 5;
     private final int space2 = 20;
-
     @Override
     public String toString() {
         String res = "";

@@ -52,4 +52,9 @@ public class Word {
     void setWordExplain(String _wordExplain) {
         wordExplain = _wordExplain;
     }
+
+    @Override
+    public String toString(){
+        return wordTarget+" | "+wordExplain;
+    }
 }

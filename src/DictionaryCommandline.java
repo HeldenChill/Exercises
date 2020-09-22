@@ -32,7 +32,7 @@ public class DictionaryCommandline {
     void dictionaryAdvance() {
         DictionaryManagement.Instance().insertFormFile();
         showAllWord();
-        DictionaryManagement.Instance().dictionaryLookUp();
+        System.out.println(DictionaryManagement.Instance().dictionaryLookUp());
     }
 
     /**
