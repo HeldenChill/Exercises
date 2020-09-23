@@ -7,7 +7,7 @@ public class Main {
         dm.insertFormFile();
         dc.dictionaryBasic();
         dc.dictionarySearcher();
-        dm.dictionaryLookUp();
+        
         dm.dictionaryExportToFile();
     }
 }

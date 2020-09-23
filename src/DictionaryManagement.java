@@ -103,7 +103,7 @@ public class DictionaryManagement {
         return firstLetter+remanderLetter;
     }
 
-    /**
+    /**0
      * Find word by commandline.
      */
     public Word dictionaryLookUp() {

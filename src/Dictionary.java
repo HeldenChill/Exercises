@@ -6,7 +6,7 @@ import java.util.Comparator;
 public class Dictionary {
 
     private ArrayList<Word> data;
-    static Dictionary inst = null;
+    static private Dictionary inst = null;
 
     private Dictionary() {
         data = new ArrayList<>();
