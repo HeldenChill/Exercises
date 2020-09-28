@@ -88,22 +88,27 @@ public class DictionaryManagement {
     /**
      * nomalize target word and explain word
      */
-    public static String nomalize(String str){
+    public static String nomalize(String str) {
+        if (str == "") {
+            return "";
+        }
+
         int indexFirstLetter = 0;
-        while(str.charAt(indexFirstLetter) == ' '){
+        while (str.charAt(indexFirstLetter) == ' ') {
             indexFirstLetter++;
         }
         str = str.substring(indexFirstLetter);
 
-        String firstLetter = str.charAt(0)+"";
+        String firstLetter = str.charAt(0) + "";
         firstLetter = firstLetter.toUpperCase();
         String remanderLetter = str.substring(1);
         remanderLetter = remanderLetter.toLowerCase();
 
-        return firstLetter+remanderLetter;
+        return firstLetter + remanderLetter;
     }
 
-    /**0
+    /**
+     * 0
      * Find word by commandline.
      */
     public Word dictionaryLookUp() {
@@ -113,20 +118,18 @@ public class DictionaryManagement {
         searchTerm = nomalize(scan.nextLine());
 
         ArrayList<Word> dic = Dictionary.Instance().getDictionary();
-        int high = dic.size()-1;
+        int high = dic.size() - 1;
         int low = 0;
 
-        while(low<high-1){
-            int indexCheck = (high+low)/2;
+        while (low < high - 1) {
+            int indexCheck = (high + low) / 2;
             int valueSearch = searchTerm.compareToIgnoreCase(dic.get(indexCheck).getWordTarget());
-            if(valueSearch == 0){
+            if (valueSearch == 0) {
                 return dic.get(indexCheck);
-            }
-            else if(valueSearch > 0){
+            } else if (valueSearch > 0) {
                 low = indexCheck;
                 continue;
-            }
-            else{
+            } else {
                 high = indexCheck;
                 continue;
             }
@@ -135,38 +138,58 @@ public class DictionaryManagement {
         return null;
     }
 
-    public int[] dictionarySeacher(){
+    public int[] dictionarySeacher(String findedWord) {
+        ArrayList<Word> dic = Dictionary.Instance().getDictionary();
         String searchTerm;
         int[] bound = new int[2];
-        scan = new Scanner(System.in);
-        System.out.print("Enter the word to search:");
-        searchTerm = nomalize(scan.nextLine());
+        if (findedWord == null) {
+            scan = new Scanner(System.in);
+            System.out.print("Enter the word to search:");
+            searchTerm = scan.nextLine();
+        } else if(findedWord.equals("")){
+            bound[0] = 0;
+            bound[1] = dic.size()-1;
+            return bound;
+        } else{
+            searchTerm = findedWord;
+        }
+        searchTerm = nomalize(searchTerm);
 
-        ArrayList<Word> dic = Dictionary.Instance().getDictionary();
-        int high = dic.size()-1;
+        int high = dic.size() - 1;
         int low = 0;
 
-        while(low<high-1){
-            int indexCheck = (high+low)/2;
+        while (low < high) {
+            int indexCheck;
+            if (low == high - 1) {
+                if (dic.get(low).getWordTarget().startsWith(searchTerm)) {
+                    indexCheck = low;
+                } else {
+                    indexCheck = high;
+                }
+            } else {
+                indexCheck = (high + low) / 2;
+            }
+
+
             int valueSearch = searchTerm.compareToIgnoreCase(dic.get(indexCheck).getWordTarget());
-            if(dic.get(indexCheck).getWordTarget().startsWith(searchTerm)){
-                bound[0]=indexCheck;
-                bound[1]=indexCheck;
-                while(bound[0]>=0 && dic.get(bound[0]).getWordTarget().startsWith(searchTerm)){
+            if (dic.get(indexCheck).getWordTarget().startsWith(searchTerm)) {
+                bound[0] = indexCheck;
+                bound[1] = indexCheck;
+                while (bound[0] >= 0 && dic.get(bound[0]).getWordTarget().startsWith(searchTerm)) {
                     bound[0]--;
                 }
                 bound[0]++;
-                while((bound[1]<dic.size()-1) && dic.get(bound[1]).getWordTarget().startsWith(searchTerm)){
+                while ((bound[1] < dic.size() ) && dic.get(bound[1]).getWordTarget().startsWith(searchTerm)) {
                     bound[1]++;
                 }
                 bound[1]--;
                 return bound;
-            }
-            else if(valueSearch > 0){
+            } else if (low == high - 1) {
+                return null;
+            } else if (valueSearch > 0) {
                 low = indexCheck;
                 continue;
-            }
-            else{
+            } else {
                 high = indexCheck;
                 continue;
             }
@@ -174,6 +197,7 @@ public class DictionaryManagement {
 
         return null;
     }
+
     boolean changWord(String wordTarget) {
         return true;
     }
@@ -188,26 +212,24 @@ public class DictionaryManagement {
     boolean dictionaryExportToFile() {
         ArrayList<Word> dic = Dictionary.Instance().getDictionary();
         File exportFile = new File("exportFile.txt");
-        if(exportFile.exists()){
-            if(exportFile.delete()){
+        if (exportFile.exists()) {
+            if (exportFile.delete()) {
                 System.out.println("Delete file!");
-            }
-            else{
+            } else {
                 System.out.println("Can't delete file!");
             }
         }
-        try{
-            if(exportFile.createNewFile()){
+        try {
+            if (exportFile.createNewFile()) {
                 FileWriter fileWriter = new FileWriter(exportFile);
-                for(int i=0;i<dic.size();i++){
+                for (int i = 0; i < dic.size(); i++) {
                     Word word = dic.get(i);
-                    fileWriter.write(word.getWordTarget()+"\t"+word.getWordExplain()+"\n");
+                    fileWriter.write(word.getWordTarget() + "\t" + word.getWordExplain() + "\n");
                 }
                 fileWriter.close();
                 System.out.println("Successfully wrote to the file.");
             }
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Can't create new file");
         }
         return true;

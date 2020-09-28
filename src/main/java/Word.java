@@ -1,3 +1,4 @@
+import javafx.scene.control.Button;
 import java.util.Comparator;
 
 public class Word {
@@ -5,10 +6,13 @@ public class Word {
     private String wordExplain;
     private static Comparator<Word> wordTargetComparator = null;
     private static Comparator<Word> wordExplainComparator = null;
+    private Button button;
 
     Word(String wordTarget, String wordExplain) {
         this.wordTarget = wordTarget;
         this.wordExplain = wordExplain;
+        //button = new Button(wordTarget);
+        //button.setMinSize(50,100);
     }
 
     private static class WordTargetCompare implements Comparator<Word> {
@@ -51,6 +55,10 @@ public class Word {
 
     void setWordExplain(String _wordExplain) {
         wordExplain = _wordExplain;
+    }
+
+    Button getButton(){
+        return button;
     }
 
     @Override

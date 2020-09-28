@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-
 public class DictionaryCommandline {
     static DictionaryCommandline inst = null;
 
@@ -40,16 +39,17 @@ public class DictionaryCommandline {
     /**
      * Find and recommend word target or explain when type each letter once
      */
-    public void dictionarySearcher() {
+    public int[] dictionarySearcher(String findedWord) {
         ArrayList<Word> dic = Dictionary.Instance().getDictionary();
-        int[] bound = DictionaryManagement.Instance().dictionarySeacher();
+        int[] bound = DictionaryManagement.Instance().dictionarySeacher(findedWord);
         if(bound == null){
             System.out.println("No word found!");
-            return;
+            return new int[]{-1,-2};
         }
 
         for(int i = bound[0];i<= bound[1];i++){
             System.out.println(dic.get(i).getWordTarget());
         }
+        return bound;
     }
 }

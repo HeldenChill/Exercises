@@ -1,20 +1,14 @@
-Bus	Xe buyt
-Coat	Ao choang
+About	Khoang chung
 Compatible	Tuong thich
 Constrain	Ep buoc
 Conversion	Su chuyen bien
 Correspond	Tuong ung
 Flower	Bong hoa
+Goodbye	Tam biet
 Hello	Xin chao
 Target	Muc tieu
 Teacher	Thay giao
+Television	Ti vi
 Tell	Noi
 Term	Thoi han
-Tired	Met moi
-Total	Tong cong
-Touch	So mo
-Trade	Trao doigoodbye
 Type	Loai,tip
-Wear	Mac
-Win	Chien thang
-Wire	Day kim loai
