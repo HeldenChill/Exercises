@@ -7,6 +7,7 @@ public class Main {
         dm.insertFormFile();
         //dc.dictionaryBasic();
         //dc.dictionarySearcher();
+        WordManagement.Instance().insertDescriptionFromFile();
         application.startApplication(args);
 
         dm.dictionaryExportToFile();

@@ -1,14 +1,15 @@
-Hello	Xin chao
-Goodbye	Tam biet
-Flower	Bong Hoa
-Teacher	Thay giao
-Compatible	Tuong Thich
-Target	Muc tieu
-Constrain	Ep buoc
-Type	Loai,Tip
-Correspond	Tuong ung
-Conversion	Su chuyen bien
-About	Khoang chung
-Television	Ti vi
-Term	Thoi han
-Tell	Noi
+About	Khoang chung	/əˈbaʊt/
+Compatible	Tuong thich	/kəmˈpætəbl/
+Constrain	Ep buoc	/kənˈstreɪn/
+Conversion	Su chuyen bien	/kənˈvɜːrʒn/
+Correspond	Tuong ung	/ˌkɒrəˈspɒnd/
+Flower	Bong hoa	/ˈflaʊə/
+Goodbye	Tam biet	/ˌɡʊdˈbaɪ/
+Hello	Xin chao	/həˈləʊ/
+Kick 	1.[transitive, intransitive] to hit somebody/something with your foot	/kɪk/
+Target	Muc tieu	/ˈtɑːɡɪt/
+Teacher	Thay giao	/ˈtiːtʃər/
+Television	Ti vi	/ˈtelɪvɪʒn/
+Tell	Noi	/tel/
+Term	Thoi han	/tɜːrm/
+Type	Loai,tip	/taɪp/

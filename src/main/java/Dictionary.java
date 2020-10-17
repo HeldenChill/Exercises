@@ -8,7 +8,7 @@ public class Dictionary {
     static private Dictionary inst = null;
 
     private Dictionary() {
-        data = new ArrayList<>();
+        data = new ArrayList<Word>();
     }
 
     public static Dictionary Instance() {

@@ -1,9 +1,8 @@
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.io.File;
 
 public class DictionaryManagement {
     private Scanner scan;
@@ -61,22 +60,23 @@ public class DictionaryManagement {
             scan = new Scanner(fileSaveWord);
             String wordTarget;
             String wordExplain;
+            String phonetic;
             String content;
             String[] tokens;
             while (scan.hasNextLine()) {
                 content = scan.nextLine();
                 tokens = content.split("\t");
                 wordTarget = nomalize(tokens[0]);
-
                 try {
                     wordExplain = nomalize(tokens[1]);
+                    phonetic = tokens[2];
 
                 } catch (Exception e) {
                     System.out.println("No explain word found !");
                     break;
                 }
 
-                Word newWord = new Word(wordTarget, wordExplain);
+                Word newWord = new Word(wordTarget, wordExplain,phonetic);
                 Dictionary.Instance().addWord(newWord);
             }
             Dictionary.Instance().sort(Word.getWordTargetCom());
@@ -142,6 +142,8 @@ public class DictionaryManagement {
         ArrayList<Word> dic = Dictionary.Instance().getDictionary();
         String searchTerm;
         int[] bound = new int[2];
+        bound[0] = 0;
+        bound[1] = -1;
         if (findedWord == null) {
             scan = new Scanner(System.in);
             System.out.print("Enter the word to search:");
@@ -185,7 +187,7 @@ public class DictionaryManagement {
                 bound[1]--;
                 return bound;
             } else if (low == high - 1) {
-                return null;
+                return bound;
             } else if (valueSearch > 0) {
                 low = indexCheck;
                 continue;
@@ -195,7 +197,7 @@ public class DictionaryManagement {
             }
         }
 
-        return null;
+        return bound;
     }
 
     boolean changWord(String wordTarget) {
@@ -211,26 +213,63 @@ public class DictionaryManagement {
      */
     boolean dictionaryExportToFile() {
         ArrayList<Word> dic = Dictionary.Instance().getDictionary();
-        File exportFile = new File("exportFile.txt");
-        if (exportFile.exists()) {
-            if (exportFile.delete()) {
-                System.out.println("Delete file!");
-            } else {
-                System.out.println("Can't delete file!");
-            }
-        }
-        try {
-            if (exportFile.createNewFile()) {
-                FileWriter fileWriter = new FileWriter(exportFile);
-                for (int i = 0; i < dic.size(); i++) {
-                    Word word = dic.get(i);
-                    fileWriter.write(word.getWordTarget() + "\t" + word.getWordExplain() + "\n");
-                }
+
+
+        FileWriter fileWriteWord;
+        try{
+            fileWriteWord = new FileWriter(fileSaveWord);
+            try{
+                FileWriter fileWriter = new FileWriter(".\\WordDescription\\adjectiveDescription.txt");
+                fileWriter.write("");
                 fileWriter.close();
-                System.out.println("Successfully wrote to the file.");
+                fileWriter = new FileWriter(".\\WordDescription\\verbDescription.txt");
+                fileWriter.write("");
+                fileWriter.close();
+                fileWriter = new FileWriter(".\\WordDescription\\nounDescription.txt");
+                fileWriter.write("");
+                fileWriter.close();
+                fileWriter = new FileWriter(".\\WordDescription\\adverbDescription.txt");
+                fileWriter.write("");
+                fileWriter.close();
+                fileWriter = new FileWriter(".\\WordDescription\\prepositionDescription.txt");
+                fileWriter.write("");
+                fileWriter.close();
+
             }
-        } catch (IOException e) {
-            System.out.println("Can't create new file");
+            catch (Exception e){
+
+            }
+            fileWriteWord.write("");
+            fileWriteWord.close();
+            fileWriteWord = new FileWriter(fileSaveWord,true);
+
+            for(int  i = 0; i < dic.size(); i++){
+                Word word = dic.get(i);
+                fileWriteWord.write(word.getWordTarget()+"\t"+word.getWordExplain()+"\t"+word.getPhonetic()+"\n");
+                ArrayList<WordDescription> des = word.getDescriptions();
+                for(int j = 0;j < des.size();j++){
+                    des.get(j).exportToFile(word);
+                }
+            }
+            fileWriteWord.close();
+        }
+        catch (Exception e){
+            System.out.println("Error when write data to file!");
+        }
+
+        return true;
+    }
+
+    boolean writeWordToFile(Word word,String data,String pathFile) {
+        File exportFile = new File(pathFile);
+        try {
+
+            FileWriter fileWriter;
+            fileWriter = new FileWriter(exportFile, true);
+            fileWriter.write("\n"+"@" + word.getWordTarget() + "\n" + data + "\n" + "###" + "\n");
+            fileWriter.close();
+        } catch (Exception e) {
+            System.out.println(e.getStackTrace());
         }
         return true;
     }

@@ -47,9 +47,9 @@ public class DictionaryCommandline {
             return new int[]{-1,-2};
         }
 
-        for(int i = bound[0];i<= bound[1];i++){
+        /*for(int i = bound[0];i<= bound[1];i++){
             System.out.println(dic.get(i).getWordTarget());
-        }
+        }*/
         return bound;
     }
 }

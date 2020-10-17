@@ -1,14 +1,14 @@
-About	Khoang chung
-Compatible	Tuong thich
-Constrain	Ep buoc
-Conversion	Su chuyen bien
-Correspond	Tuong ung
-Flower	Bong hoa
-Goodbye	Tam biet
-Hello	Xin chao
-Target	Muc tieu
-Teacher	Thay giao
-Television	Ti vi
-Tell	Noi
-Term	Thoi han
-Type	Loai,tip
+About	Khoang chung	/əˈbaʊt/
+Compatible	Tuong thich	/kəmˈpætəbl/
+Constrain	Ep buoc	/kənˈstreɪn/
+Conversion	Su chuyen bien	/kənˈvɜːrʒn/
+Correspond	Tuong ung	/ˌkɒrəˈspɒnd/
+Flower	Bong hoa	/ˈflaʊə/
+Goodbye	Tam biet	/ˌɡʊdˈbaɪ/
+Hello	Xin chao	/həˈləʊ/
+Target	Muc tieu	/ˈtɑːɡɪt/
+Teacher	Thay giao	/ˈtiːtʃər/
+Television	Ti vi	/ˈtelɪvɪʒn/
+Tell	Noi	/tel/
+Term	Thoi han	/tɜːrm/
+Type	Loai,tip	/taɪp/
