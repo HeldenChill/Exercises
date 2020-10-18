@@ -128,8 +128,13 @@ public class WordManagement {
         wordTargetText.setStyle("-fx-font-size:17;" +
                 "-fx-font-weight:900;" +
                 "-fx-fill:#f5428d;");
-        root.setMargin(wordTargetText, new Insets(20, 20, 20, 20));
-        root.getChildren().add(wordTargetText);
+        Text wordPhoneticText = new Text(word.getPhonetic());
+        wordPhoneticText.setStyle("-fx-font-size:13;" +
+                            "-fx-font-weight:700;");
+
+        root.getChildren().addAll(wordTargetText,wordPhoneticText);
+        root.setMargin(wordTargetText, new Insets(20, 0, 0, 20));
+        root.setMargin(wordPhoneticText,new Insets(5,0,18,20));
         ArrayList<WordDescription> descriptions = word.getDescriptions();
         for (int i = 0; i < descriptions.size(); i++) {
             WordDescription des = descriptions.get(i);

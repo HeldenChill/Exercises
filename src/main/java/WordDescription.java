@@ -1,4 +1,5 @@
 import javafx.geometry.Insets;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -50,6 +51,7 @@ public abstract class WordDescription {
         typeWord.setStyle("-fx-font-size:15;" +
                 "-fx-font-weight:900;" +
                 "-fx-fill:#155ccf;");
+        HBox hbox1 = new HBox();
         VBox root = new VBox();
         root.getChildren().add(typeWord);
         root.setMargin(typeWord,new Insets(10,0,0,0));
