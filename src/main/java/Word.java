@@ -23,6 +23,7 @@ public class Word {
         this.wordTarget = DictionaryManagement.nomalize(wordTarget);
         this.wordExplain = wordExplain.trim();
         this.phonetic = phonetic.trim();
+        descriptions = new ArrayList<WordDescription>();
     }
 
     //For sort word in array list

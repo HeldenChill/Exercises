@@ -17,5 +17,7 @@
     <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:win:13" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:13" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:win:13" level="project" />
+    <orderEntry type="library" name="gtranslateapi-1.0" level="project" />
+    <orderEntry type="library" name="jl1.0" level="project" />
   </component>
 </module>

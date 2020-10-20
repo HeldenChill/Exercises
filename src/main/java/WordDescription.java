@@ -74,7 +74,7 @@ public abstract class WordDescription {
                         "-fx-fill:#8f8f14;");
                 defiBox.getChildren().add(example);
             }
-            defiBox.setPadding(new Insets(5,0,0,10));
+            defiBox.setPadding(new Insets(0,0,10,10));
             root.getChildren().add(defiBox);
         }
         display = root;

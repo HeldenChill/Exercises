@@ -1,8 +1,6 @@
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -10,6 +8,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class MainApplication extends AbstractApplication{
     private static MainApplication inst = null;
@@ -69,13 +68,33 @@ public class MainApplication extends AbstractApplication{
             });
             Button deleteButton = SupportApplication.createButtonStyle("Delete Word", SupportApplication.ID_STYLE.BUTTONSTYLE2);
             deleteButton.setOnAction(e->{
-                if(oldClikedWord != null){
-                    WordManagement.buttonToWord.remove(oldClikedWord.getWordTarget());
-                    Dictionary.Instance().getDictionary().remove(oldClikedWord);
-                    oldClikedWord = null;
-                    renderWordButton(null,true);
-                    exampleWordDisplay.getChildren().removeAll(exampleWordDisplay.getChildren());
+                if(oldClikedWord == null){
+                    Alert error = new Alert(Alert.AlertType.ERROR);
+                    error.setHeaderText("Word must be choice to delete!");
+                    error.setContentText("Choice one word in list!");
+                    error.showAndWait();
                 }
+                else{
+                    Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+                    confirm.setHeaderText("Are you sure want to delete word: "+oldClikedWord.getWordTarget()+"?");
+                    Optional<ButtonType> optional = confirm.showAndWait();
+
+                    if(optional.get() == null){
+                    }
+                    else if(optional.get() == ButtonType.OK){
+                        WordManagement.buttonToWord.remove(oldClikedWord.getWordTarget());
+                        Dictionary.Instance().getDictionary().remove(oldClikedWord);
+                        oldClikedWord = null;
+                        renderWordButton(null,true);
+                        exampleWordDisplay.getChildren().removeAll(exampleWordDisplay.getChildren());
+
+                        Alert infor = new Alert(Alert.AlertType.ERROR);
+                        infor.setHeaderText("Deleted Successfully");
+                        infor.setContentText("Continue");
+                        infor.showAndWait();
+                    }
+                }
+
 
             });
             hbox112.getChildren().addAll(addWordButton,changeWordButton,deleteButton);
@@ -144,6 +163,7 @@ public class MainApplication extends AbstractApplication{
             app = stage;
         }
         return app;
+
     }
 
 

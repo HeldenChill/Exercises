@@ -100,6 +100,7 @@ public class ChangeWordApplication extends AbstractApplication{
         MainApplication.renderWordButton(null,true);
     }
     private Pane definitionPane(String definition, String examples, AddWordApplication.TYPE_WORD typeWord){
+
         VBox vbox13 = new VBox();
         vbox13.setSpacing(10);
         HBox hbox131 = new HBox();
@@ -144,7 +145,11 @@ public class ChangeWordApplication extends AbstractApplication{
         return vbox13;
     }
     public Stage getApplication(){
+        int[] indexDefi = new int[5];
         countDefi = 1;
+        for(int i = 0; i < 5; i++){
+            indexDefi[i] = 1;
+        }
         wordNeedingChange = MainApplication.oldClikedWord;
             HBox root = new HBox();
             //VBox1
@@ -262,24 +267,34 @@ public class ChangeWordApplication extends AbstractApplication{
 
                     }
                     else{
-                        defi[i-2] = i-1+"."+definition.getText();
+                        /*defi[i-2] = i-1+"."+definition.getText();*/
                     }
 
 
 
                     if(type.getValue() == "Noun"){
+                        defi[i-2] = indexDefi[0]+"."+definition.getText();
+                        indexDefi[0]++;
                         type_words[i-2] = AddWordApplication.TYPE_WORD.NOUN;
                     }
                     else if(type.getValue() == "Verb"){
+                        defi[i-2] = indexDefi[1]+"."+definition.getText();
+                        indexDefi[1]++;
                         type_words[i-2] = AddWordApplication.TYPE_WORD.VERB;
                     }
                     else if(type.getValue() == "Adjective"){
+                        defi[i-2] = indexDefi[2]+"."+definition.getText();
+                        indexDefi[2]++;
                         type_words[i-2] = AddWordApplication.TYPE_WORD.ADJECTIVE;
                     }
                     else if(type.getValue() == "Adverb"){
+                        defi[i-2] = indexDefi[3]+"."+definition.getText();
+                        indexDefi[3]++;
                         type_words[i-2] = AddWordApplication.TYPE_WORD.ADVERB;
                     }
                     else if(type.getValue() == "Preposition"){
+                        defi[i-2] = indexDefi[4]+"."+definition.getText();
+                        indexDefi[4]++;
                         type_words[i-2] = AddWordApplication.TYPE_WORD.PREPOSITION;
                     }
                     else{
