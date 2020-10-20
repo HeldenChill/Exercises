@@ -1,6 +1,26 @@
 
+@Absolute
+~1.total and complete`I've joined a class for absolute beginners.`absolute confidence/trust/silence/truth`‘You're wrong,’ she said with absolute certainty.`Clean water is an absolute necessity.`Around them the darkness was absolute, the silence oppressive~2. [only before noun] used, especially in spoken English, to give emphasis to what you are saying`We must keep costs to an absolute minimum.`This room is an absolute disgrace.`They're talking absolute nonsense.`He must earn an absolute fortune.~3.definite and without any doubt`There was no absolute proof.`He taught us that the laws of physics were absolute.`The story offers no clear message, no absolute truth.~4.(of a legal decision) final`The divorce became absolute last week.~5.not limited in any way`absolute power/authority`an absolute ruler/monarchy (= one with no limit to their power)~6.existing or measured independently and not in relation to something else`Although prices are falling in absolute terms, energy is still expensive.`Beauty cannot be measured by any absolute standard.
+###
+
+@Back
+~1. located behind or at the back of something`We were sitting in the back row`the back garden (= behind the house)`a back room (= one at the back of a building)`My phone's in my back pocket.`back teeth`the back page of a newspaper`We drove along miles of twisty back roads (= away from the main roads).~2.of or from a past time`a back issue of the magazine~3.owed for a time in the past`back pay/taxes/rent~4.(phonetics) (of a vowel) produced with the back of the tongue in a higher position than the front, for example /ɑː/ in English`
+###
+
 @Compatible
 ​~1.compatible (with something) (of machines, especially computers, or software) able to be used together`The new system will be compatible with existing equipment.`Three different, yet entirely compatible programs​~2.compatible (with something) (of ideas, methods or things) able to exist or be used together without causing problems`Are measures to protect the environment compatible with economic growth?`compatible blood groups~​3.compatible (with somebody) if two people are compatible, they can have a good relationship because they have similar ideas, interests, etc.`She found a compatible partner through a computer dating agency.
+###
+
+@Daily 
+~1. happening, done or produced every day`Many people still read a daily newspaper.`events affecting the daily lives of millions of people`The daily routine is the same for all prisoners.`Keep a record of your daily activities.`the recommended daily intake of vitamin C`your daily dose of vitamins/news/humour`Invoices are signed on a daily basis.~2.​connected with one day’s work`They charge a daily rate.
+###
+
+@Dangerous
+~3.likely to injure or harm somebody, or to damage or destroy something`The situation is extremely dangerous.`Fog and ice are making the roads very dangerous.`potentially dangerous levels of pesticides`It's one of the most dangerous places in the world.`The prisoners who escaped are violent and dangerous.` (British English) a conviction for dangerous driving` dangerous for somebody Poor air quality is particularly dangerous for young children.` dangerous for somebody to do something It would be dangerous for you to stay here.` dangerous to somebody/something The evidence is clear that smoking is dangerous to health.~4.likely to cause problems or have a bad result`This ruling sets a dangerous precedent.`Raising income tax is considered politically dangerous.` dangerous to do something As always, it's dangerous to generalize.
+###
+
+@Economic
+~1.[only before noun] connected with the trade, industry and development of wealth of a country, an area or a society`They discussed social, economic and political issues.`economic growth/development`the worst economic crisis since the war`There will be no quick economic recovery.`the government’s economic policy`economic activity/cooperation/reform`an economic downturn/slowdown`A public spending programme is out of the question in the current economic climate.~2.(especially in negative sentences)(of a process, a business or an activity) producing enough profit to continue`The college was not achieving the numbers of students needed to make it economic.` it is economic to do something They found it was not economic to sell their milk to the supermarkets.` it is economic for somebody/something to do something It's simply not economic for these small farmers to start buying large amounts of expensive fertilizer.
 ###
 
 @Type

@@ -110,11 +110,15 @@ public class MainApplication extends AbstractApplication{
 
             findWordTextField.setMinWidth(265);
 
-            //System.out.println(title1.getLayoutX()+","+title1.getLayoutY());
+            ScrollPane vbox13SP = new ScrollPane();
+            vbox13SP.setFitToWidth(true);
+            vbox13SP.setContent(vbox13);
+            vbox13SP.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+            vbox13SP.setStyle("-fx-background:#d7dadb;"
+                    +"-fx-background-color:#d7dadb;");
+            vbox1.getChildren().addAll(vbox11,hbox12,vbox13SP);
 
-            vbox1.getChildren().addAll(vbox11,hbox12,vbox13);
-
-            vbox1.setMargin(title1,new Insets(0,50,10,50));
+            vbox1.setMargin(title1,new Insets(0,57,10,57));
             vbox1.setMargin(hbox12,new Insets(10,0,0,20));
             root.getChildren().addAll(vbox1,vbox2);
             vbox1.setSpacing(10);
@@ -134,6 +138,9 @@ public class MainApplication extends AbstractApplication{
             vbox23SP.setContent(vbox23);
             vbox23SP.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
             vbox23SP.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+            vbox23SP.setMinHeight(700);
+            vbox23SP.setFitToHeight(true);
+            vbox13SP.setFitToWidth(true);
 
             vbox21.setStyle("-fx-background-color:#0a4580;");
             vbox21.setPadding(new Insets(58,500,8,10));
@@ -171,7 +178,7 @@ public class MainApplication extends AbstractApplication{
     @Override
     public void runAfterShow() throws Exception{
         exampleWordWidth = exampleWordTitleDisplay.getWidth()-26;
-        buttonWordWidth = buttonWordDisplay.getWidth()+10;
+        buttonWordWidth = buttonWordDisplay.getWidth()-2;
         ArrayList<Word> dic = Dictionary.Instance().getDictionary();
         for(int i = 0; i < dic.size(); i++){
             WordManagement.Instance().createWordDisplay(dic.get(i),exampleWordWidth);

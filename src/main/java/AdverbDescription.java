@@ -4,7 +4,7 @@ public class AdverbDescription extends WordDescription {
     AdverbDescription(String data){
         super(data);
         pathFile = ".\\WordDescription\\adverbDescription.txt";
-        super.setData(pathFile);
+        super.setPathFile(pathFile);
     }
 
     public Pane createDisplay(String type,double width) {

@@ -145,11 +145,7 @@ public class ChangeWordApplication extends AbstractApplication{
         return vbox13;
     }
     public Stage getApplication(){
-        int[] indexDefi = new int[5];
-        countDefi = 1;
-        for(int i = 0; i < 5; i++){
-            indexDefi[i] = 1;
-        }
+        int[] indexDefi = {1,1,1,1,1};
         wordNeedingChange = MainApplication.oldClikedWord;
             HBox root = new HBox();
             //VBox1
@@ -175,6 +171,15 @@ public class ChangeWordApplication extends AbstractApplication{
                         for(int k = 1;k < tokens.length;k++){
                             examples+=tokens[k]+"\n";
                         }
+
+                        if(tokens[0].charAt(0) >= '0' && tokens[0].charAt(0) <= '9'){
+                            if(tokens[0].charAt(1) == '.'){
+                                tokens[0] = tokens[0].substring(2);
+                            }
+                            else if(tokens[0].charAt(2) == '.'){
+                                tokens[0] = tokens[0].substring(3);
+                            }
+                        }
                         vbox1.getChildren().add(definitionPane(tokens[0],examples, AddWordApplication.TYPE_WORD.NOUN));
                     }
                 }
@@ -184,6 +189,15 @@ public class ChangeWordApplication extends AbstractApplication{
                         String examples = "";
                         for(int k = 1;k < tokens.length;k++){
                             examples+=tokens[k]+"\n";
+                        }
+
+                        if(tokens[0].charAt(0) >= '0' && tokens[0].charAt(0) <= '9'){
+                            if(tokens[0].charAt(1) == '.'){
+                                tokens[0] = tokens[0].substring(2);
+                            }
+                            else if(tokens[0].charAt(2) == '.'){
+                                tokens[0] = tokens[0].substring(3);
+                            }
                         }
                         vbox1.getChildren().add(definitionPane(tokens[0],examples, AddWordApplication.TYPE_WORD.VERB));
                     }
@@ -195,6 +209,15 @@ public class ChangeWordApplication extends AbstractApplication{
                         for(int k = 1;k < tokens.length;k++){
                             examples+=tokens[k]+"\n";
                         }
+
+                        if(tokens[0].charAt(0) >= '0' && tokens[0].charAt(0) <= '9'){
+                            if(tokens[0].charAt(1) == '.'){
+                                tokens[0] = tokens[0].substring(2);
+                            }
+                            else if(tokens[0].charAt(2) == '.'){
+                                tokens[0] = tokens[0].substring(3);
+                            }
+                        }
                         vbox1.getChildren().add(definitionPane(tokens[0],examples, AddWordApplication.TYPE_WORD.ADJECTIVE));
                     }
                 }
@@ -205,6 +228,15 @@ public class ChangeWordApplication extends AbstractApplication{
                         for(int k = 1;k < tokens.length;k++){
                             examples+=tokens[k]+"\n";
                         }
+
+                        if(tokens[0].charAt(0) >= '0' && tokens[0].charAt(0) <= '9'){
+                            if(tokens[0].charAt(1) == '.'){
+                                tokens[0] = tokens[0].substring(2);
+                            }
+                            else if(tokens[0].charAt(2) == '.'){
+                                tokens[0] = tokens[0].substring(3);
+                            }
+                        }
                         vbox1.getChildren().add(definitionPane(tokens[0],examples, AddWordApplication.TYPE_WORD.ADVERB));
                     }
                 }
@@ -214,6 +246,15 @@ public class ChangeWordApplication extends AbstractApplication{
                         String examples = "";
                         for(int k = 1;k < tokens.length;k++){
                             examples+=tokens[k]+"\n";
+                        }
+
+                        if(tokens[0].charAt(0) >= '0' && tokens[0].charAt(0) <= '9'){
+                            if(tokens[0].charAt(1) == '.'){
+                                tokens[0] = tokens[0].substring(2);
+                            }
+                            else if(tokens[0].charAt(2) == '.'){
+                                tokens[0] = tokens[0].substring(3);
+                            }
                         }
                         vbox1.getChildren().add(definitionPane(tokens[0],examples, AddWordApplication.TYPE_WORD.PREPOSITION));
                     }
@@ -238,6 +279,7 @@ public class ChangeWordApplication extends AbstractApplication{
             Button addWordButton1 = new Button("Change Word.");
             addWordButton1.setOnAction(e->{
                 int size = vbox1.getChildren().size()-2;
+                countDefi = 1;
 
                 String[] defi = new String[size];
                 String[] examples = new String[size];
@@ -312,6 +354,9 @@ public class ChangeWordApplication extends AbstractApplication{
                     Alert information = new Alert(Alert.AlertType.INFORMATION);
                     information.setContentText("Success add word to dictionary!");
                     information.show();
+                    for(int i = 0; i < 5; i++){
+                        indexDefi[i] = 1;
+                    }
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }

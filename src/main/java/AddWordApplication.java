@@ -33,7 +33,7 @@ public class AddWordApplication extends AbstractApplication{
         PREPOSITION,
     }
 
-    int countDefi = 2;
+    int countDefi = 1;
     public Pane definitionPane(){
         VBox vbox13 = new VBox();
         vbox13.setSpacing(10);
@@ -130,11 +130,7 @@ public class AddWordApplication extends AbstractApplication{
         MainApplication.renderWordButton(null,true);
     }
     public Stage getApplication(){
-        countDefi = 1;
-        int[] indexDefi = new int[5];
-        for(int i = 0; i < 5; i++){
-            indexDefi[i] = 1;
-        }
+        int[] indexDefi = {1,1,1,1,1};
         if(app == null){
 
             HBox root = new HBox();
@@ -169,6 +165,7 @@ public class AddWordApplication extends AbstractApplication{
             });
             Button addWordButton1 = new Button("Add Word.");
             addWordButton1.setOnAction(e->{
+
                 int size = vbox1.getChildren().size()-2;
 
                 String[] defi = new String[size];
@@ -243,6 +240,9 @@ public class AddWordApplication extends AbstractApplication{
                     Alert information = new Alert(AlertType.INFORMATION);
                     information.setContentText("Success add word to dictionary!");
                     information.show();
+                    for(int i = 0; i < 5; i ++){
+                        indexDefi[i] = 1;
+                    }
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
